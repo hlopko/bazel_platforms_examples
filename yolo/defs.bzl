@@ -1,14 +1,16 @@
-def _yolo_toolchain_to_string(yolo_toolchain):
-    return "YoloInfo(targetting_cpu: '{}', targetting_os: '{}', executing_on_cpu: '{}', executing_on_os: '{}')".format(
-        yolo_toolchain.targetting_cpu,
-        yolo_toolchain.targetting_os,
-        yolo_toolchain.executing_on_cpu,
-        yolo_toolchain.executing_on_os,
-    )
-
 def _yolo_library_impl(ctx):
     yolo_toolchain = ctx.toolchains["//yolo:toolchain_type"]
-    print("YOLO_LIBRARY(name = '{}', toolchain = '{}')".format(ctx.attr.name, _yolo_toolchain_to_string(yolo_toolchain)))
+    print("\n" + "\n".join([
+        "yolo_library(",
+        "  name = '" + ctx.attr.name + "',",
+        "  toolchain = {",
+        "    'targetting_cpu': '" + yolo_toolchain.targetting_cpu + "',",
+        "    'targetting_os': '" + yolo_toolchain.targetting_os + "',",
+        "    'executing_on_cpu': '" + yolo_toolchain.executing_on_cpu + "',",
+        "    'executing_on_os': '" + yolo_toolchain.executing_on_os + "',",
+        "  },",
+        ")",
+    ]))
     return []
 
 yolo_library = rule(
