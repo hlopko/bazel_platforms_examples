@@ -1,5 +1,7 @@
 # Example 03: Library not compatible with Windows
 
+*See //examples/04_select_on_constraint for example with non-exhaustive select.*
+
 Command:
 
 ```

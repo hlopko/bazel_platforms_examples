@@ -16,3 +16,11 @@ platform(
         "@platforms//os:windows",
     ],
 )
+
+# Similarly to the linux platform, this is a platform describing Android.
+platform(
+    name = "android_platform",
+    constraint_values = [
+        "@platforms//os:android",
+    ],
+)
