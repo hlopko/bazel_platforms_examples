@@ -10,6 +10,7 @@ bazel build //examples/02_linux_or_windows:a --platform=//:windows_platform
 Output:
 
 ```
+# 1)
 yolo_library(
   name = 'a',
   toolchain = {
@@ -20,6 +21,7 @@ yolo_library(
   },
 )
 
+# 2)
 yolo_library(
   name = 'a',
   toolchain = {

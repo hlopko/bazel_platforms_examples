@@ -30,9 +30,21 @@ def _yolo_toolchain_impl(ctx):
 yolo_toolchain = rule(
     implementation = _yolo_toolchain_impl,
     attrs = {
-        "targetting_cpu": attr.string(),
-        "targetting_os": attr.string(),
-        "executing_on_cpu": attr.string(),
-        "executing_on_os": attr.string(),
+        "targetting_cpu": attr.string(mandatory = True),
+        "targetting_os": attr.string(mandatory = True),
+        "executing_on_cpu": attr.string(mandatory = True),
+        "executing_on_os": attr.string(mandatory = True),
     },
+)
+
+def _fail_with_msg(ctx):
+    yolo_toolchain = ctx.toolchains["//yolo:toolchain_type"]
+    fail(ctx.attr.msg + " Selected toolchain: " + str(yolo_toolchain) + ".")
+
+fail_with_msg = rule(
+    implementation = _fail_with_msg,
+    attrs = {
+        "msg": attr.string(mandatory = True),
+    },
+    toolchains = ["//yolo:toolchain_type"],
 )
