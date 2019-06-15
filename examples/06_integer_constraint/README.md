@@ -1,4 +1,4 @@
-# Example 05: Select on platform
+# Example 06: Matching multiple constraints
 
 Command:
 
@@ -28,20 +28,26 @@ yolo_library(
 )
 ```
 
-In this example we demonstrate that one can also select on bare `--platforms`
-option. That's not recommended though:
+In this example we show how to emulate greater-than and less-than using selects.
+We make use of [skylib](https://github.com/bazelbuild/bazel-skylib)'s
+[selects](https://github.com/bazelbuild/bazel-skylib/blob/master/lib/selects.bzl)
+module. 
 
-1) In this example we select on the target platform. When the target that we
-   select in is used during the build (= it will be built in the host
-   configuration), the select will be incorrect.
-2) While `constraint_setting`s and
-   `constraint_value`s tend to be universal, like operating system or cpu
-   architecture (existence of
-   [https://github.com/bazelbuild/platforms](https://github.com/bazelbuild/platforms)
-   shows that),
-   [`platform`](https://docs.bazel.build/versions/master/be/platform.html#platform)s
-   are very project/company specific (e.g. 'description of company servers', 'or
-   specific mobile device', or 'development board for IoT development'). If
-   there is any possibility that somebody else will use your project, select on
-   constraints, not on platforms. By selecting on `--platforms` you'll force
-   them to use your idea of platforms, or to fork your repo.
+Similar mechanism can be used to express hierarchical constraints. We can
+have a select that encodes that 'haswell' CPU implies 'SSE':
+
+```
+selects.config_setting_group(
+    name = "has_sse",
+    match_any = ["//cpu_extensions:sse3", "//cpu:haswell", ...],
+)
+```
+
+Or a select that encodes that ubuntu is a linux:
+
+```
+selects.config_setting_group(
+    name = "has_sse",
+    match_any = ["//distributions:ubuntu", "@platforms//os:linux", ...],
+)
+```

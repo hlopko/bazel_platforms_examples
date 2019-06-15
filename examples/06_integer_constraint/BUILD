@@ -10,6 +10,7 @@ alias(
     visibility = ["//visibility:public"],
 )
 
+# Matching both lang 2 and 3.
 selects.config_setting_group(
     name = "yolo_lang_greater_or_equal_than_2",
     match_any = [":yolo_lang_2", ":yolo_lang_3"],
