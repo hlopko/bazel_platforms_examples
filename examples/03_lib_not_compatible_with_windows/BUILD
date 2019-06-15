@@ -1,4 +1,5 @@
 load("//yolo:defs.bzl", "yolo_library", "fail_with_msg")
+package(default_visibility = ["//visibility:private"])
 
 alias(
     name = "a",
@@ -6,7 +7,7 @@ alias(
         ":is_windows": ":fail",
         "//conditions:default": ":a_unsafe",
     }),
-
+    visibility = ["//visibility:public"],
 )
 
 config_setting(
@@ -21,6 +22,5 @@ fail_with_msg(
 
 yolo_library(
     name = "a_unsafe",
-    visibility = ["//visibility:private"],
 )
 
