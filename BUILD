@@ -5,6 +5,7 @@ platform(
     name = "linux_platform",
     constraint_values = [
         "@platforms//os:linux",
+        "//yolo:yolo_lang_1",
     ],
 )
 
@@ -14,6 +15,7 @@ platform(
     name = "windows_platform",
     constraint_values = [
         "@platforms//os:windows",
+        "//yolo:yolo_lang_1",
     ],
 )
 
@@ -22,5 +24,14 @@ platform(
     name = "android_platform",
     constraint_values = [
         "@platforms//os:android",
+    ],
+)
+
+# Platform describing a Linux machine with yolo-lang 3.
+platform(
+    name = "linux_yolo_3_platform",
+    constraint_values = [
+        "@platforms//os:linux",
+        "//yolo:yolo_lang_3",
     ],
 )

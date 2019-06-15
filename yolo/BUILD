@@ -5,6 +5,8 @@ load("//yolo:defs.bzl", "yolo_toolchain", "yolo_library")
 # constraints.
 load("@local_config_platform//:constraints.bzl", "HOST_CONSTRAINTS")
 
+package(default_visibility = ["//visibility:public"])
+
 # Toolchain type is used to distinguish toolchains per languages.
 #
 # By convention, toolchain_type targets are named "toolchain_type" and
@@ -15,8 +17,8 @@ toolchain_type(name = "toolchain_type")
 # Toolchain that targets Linux, and executes on Linux.
 toolchain(
     name = "linux_toolchain",
-    exec_compatible_with = ["@platforms//os:linux"],
-    target_compatible_with = ["@platforms//os:linux"],
+    exec_compatible_with = ["@platforms//os:linux", ":yolo_lang_1"],
+    target_compatible_with = ["@platforms//os:linux", ":yolo_lang_1"],
     toolchain = ":linux_yolo_toolchain",
     toolchain_type = ":toolchain_type",
 )
@@ -64,3 +66,25 @@ yolo_toolchain(
     executing_on_os = "host",
 )
 
+# Toolchain that targets Linux, and executes on Linux, and requires yolo_lang_3
+# version.
+toolchain(
+    name = "linux_lang_3_toolchain",
+    exec_compatible_with = ["@platforms//os:linux", ":yolo_lang_3"],
+    target_compatible_with = ["@platforms//os:linux", ":yolo_lang_3"],
+    toolchain = ":linux_lang_3_yolo_toolchain",
+    toolchain_type = ":toolchain_type",
+)
+
+yolo_toolchain(
+    name = "linux_lang_3_yolo_toolchain",
+    targetting_cpu = "-",
+    targetting_os = "linux_with_yolo_lang_3",
+    executing_on_cpu = "-",
+    executing_on_os = "linux_with_yolo_lang_3",
+)
+
+constraint_setting(name = "yolo_lang_version")
+constraint_value(name = "yolo_lang_1", constraint_setting = ":yolo_lang_version")
+constraint_value(name = "yolo_lang_2", constraint_setting = ":yolo_lang_version")
+constraint_value(name = "yolo_lang_3", constraint_setting = ":yolo_lang_version")

@@ -9,6 +9,14 @@ http_archive(
     ],
     strip_prefix = "platforms-441afe1bfdadd6236988e9cac159df6b5a9f5a98"
 )
+http_archive(
+    name = "bazel_skylib",
+    url = "https://github.com/bazelbuild/bazel-skylib/archive/b113ed5d05ccddee3093bb157b9b02ab963c1c32.zip",
+    sha256 = "cea47b31962206b7ebf2088f749243868d5d9305273205bdd8651567d3e027fc",
+    strip_prefix = "bazel-skylib-b113ed5d05ccddee3093bb157b9b02ab963c1c32",
+)
+load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+bazel_skylib_workspace()
 
 # Tell Bazel about our toolchains so it can resolve them based on values passed
 # in --platform, --host_platform, and --execution_platforms options.
