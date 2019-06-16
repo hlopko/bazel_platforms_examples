@@ -22,3 +22,7 @@ b //examples/06_integer_constraint:a --platforms=//:linux_platform && (exit 21) 
 b //examples/06_integer_constraint:a --platforms=//:linux_yolo_3_platform --host_platform=//:linux_yolo_3_platform
 b //examples/07_using_define:everything
 b //examples/07_using_define:everything --define is_foo_defined=true
+b //examples/08_using_build_setting:everything
+b //examples/08_using_build_setting:everything --//examples/08_using_build_setting:foo_enabled
+b //examples/08_using_build_setting:everything --//examples/08_using_build_setting:foo_enabled=False
+b //examples/08_using_build_setting:everything --//examples/08_using_build_setting:foo_enabled=True

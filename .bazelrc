@@ -1,3 +1,5 @@
 # Remove once https://github.com/bazelbuild/bazel/issues/7081 is flipped.
 build --platforms=@local_config_platform//:host
 build --host_platform=@local_config_platform//:host
+
+build --experimental_build_setting_api
