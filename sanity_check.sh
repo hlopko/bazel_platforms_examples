@@ -20,3 +20,5 @@ b //examples/05_select_on_platform:a --platforms=//:linux_platform
 b //examples/05_select_on_platform:a --platforms=//:windows_platform
 b //examples/06_integer_constraint:a --platforms=//:linux_platform && (exit 21) || true
 b //examples/06_integer_constraint:a --platforms=//:linux_yolo_3_platform --host_platform=//:linux_yolo_3_platform
+b //examples/07_using_define:everything
+b //examples/07_using_define:everything --define is_foo_defined=true
