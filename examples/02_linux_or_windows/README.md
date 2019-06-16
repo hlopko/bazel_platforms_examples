@@ -3,8 +3,8 @@
 Command:
 
 ```
-bazel build //examples/02_linux_or_windows:a --platform=//:linux_platform
-bazel build //examples/02_linux_or_windows:a --platform=//:windows_platform
+bazel build //examples/02_linux_or_windows:a --platforms=//:linux_platform
+bazel build //examples/02_linux_or_windows:a --platforms=//:windows_platform
 ```
 
 Output:

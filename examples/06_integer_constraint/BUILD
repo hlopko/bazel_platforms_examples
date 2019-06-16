@@ -1,5 +1,6 @@
-load("//yolo:defs.bzl", "yolo_library", "fail_with_msg")
+load("//yolo:defs.bzl", "fail_with_msg", "yolo_library")
 load("@bazel_skylib//lib:selects.bzl", "selects")
+
 package(default_visibility = ["//visibility:private"])
 
 alias(
@@ -13,7 +14,10 @@ alias(
 # Matching both lang 2 and 3.
 selects.config_setting_group(
     name = "yolo_lang_greater_or_equal_than_2",
-    match_any = [":yolo_lang_2", ":yolo_lang_3"],
+    match_any = [
+        ":yolo_lang_2",
+        ":yolo_lang_3",
+    ],
 )
 
 config_setting(
@@ -34,4 +38,3 @@ config_setting(
 yolo_library(
     name = "a_needs_greater_or_equal_than_2",
 )
-

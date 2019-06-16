@@ -1,4 +1,5 @@
-load("//yolo:defs.bzl", "yolo_library", "fail_with_msg")
+load("//yolo:defs.bzl", "fail_with_msg", "yolo_library")
+
 package(default_visibility = ["//visibility:private"])
 
 alias(
@@ -31,4 +32,3 @@ yolo_library(
 yolo_library(
     name = "a_linux",
 )
-
