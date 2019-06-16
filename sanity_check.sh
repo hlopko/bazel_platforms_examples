@@ -13,3 +13,6 @@ b //examples/02_using_different_platforms:a --platforms=//:linux_platform
 b //examples/02_using_different_platforms:a --platforms=//:windows_platform
 b //examples/03_target_not_compatible_with_constraint:a --platforms=//:linux_platform
 b //examples/03_target_not_compatible_with_constraint:b --platforms=//:linux_platform && (exit 15) || true
+b //examples/04_select_on_constraint:a --platforms=//:linux_platform
+b //examples/04_select_on_constraint:a --platforms=//:windows_platform
+b //examples/04_select_on_constraint:a --platforms=//:android_platform && (exit 18) || true

@@ -1,4 +1,4 @@
-load("//yolo:defs.bzl", "fail_with_msg", "yolo_library")
+load("//yolo:defs.bzl", "yolo_library")
 
 package(default_visibility = ["//visibility:private"])
 
