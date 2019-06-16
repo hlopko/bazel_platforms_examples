@@ -1,25 +1,21 @@
 # Example 01: Hello World
 
-Simple example demonstrating a workspace with toolchains and platforms setup.
+Example demonstrating a workspace with toolchains and platforms setup.
 
-## Command
+## Commands
 
 ```
 bazel build //examples/01_hello_world:a
-```
 
-## Output
-
-```
-yolo_library(
-  name = 'a',
-  toolchain = {
-    'targetting_cpu': 'host',
-    'targetting_os': 'host',
-    'executing_on_cpu': 'host',
-    'executing_on_os': 'host',
-  },
-)
+>   yolo_library(
+>     name = 'a',
+>     toolchain = {
+>       'targetting_cpu': 'host',
+>       'targetting_os': 'host',
+>       'executing_on_cpu': 'host',
+>       'executing_on_os': 'host',
+>     },
+>   )
 ```
 
 ## Description

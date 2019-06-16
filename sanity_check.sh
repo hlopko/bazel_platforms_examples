@@ -9,3 +9,5 @@ function b() {
 }
 
 b //examples/01_hello_world:a
+b //examples/02_using_different_platforms:a --platforms=//:linux_platform
+b //examples/02_using_different_platforms:a --platforms=//:windows_platform
