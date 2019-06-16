@@ -16,3 +16,7 @@ b //examples/03_target_not_compatible_with_constraint:b --platforms=//:linux_pla
 b //examples/04_select_on_constraint:a --platforms=//:linux_platform
 b //examples/04_select_on_constraint:a --platforms=//:windows_platform
 b //examples/04_select_on_constraint:a --platforms=//:android_platform && (exit 18) || true
+b //examples/05_select_on_platform:a --platforms=//:linux_platform
+b //examples/05_select_on_platform:a --platforms=//:windows_platform
+b //examples/06_integer_constraint:a --platforms=//:linux_platform && (exit 21) || true
+b //examples/06_integer_constraint:a --platforms=//:linux_yolo_3_platform --host_platform=//:linux_yolo_3_platform

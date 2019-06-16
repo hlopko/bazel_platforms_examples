@@ -15,23 +15,18 @@ alias(
 selects.config_setting_group(
     name = "yolo_lang_greater_or_equal_than_2",
     match_any = [
-        ":yolo_lang_2",
-        ":yolo_lang_3",
+        ":yolo_lang_2_setting",
+        ":yolo_lang_3_setting",
     ],
 )
 
 config_setting(
-    name = "yolo_lang_1",
-    constraint_values = ["//yolo:yolo_lang_1"],
-)
-
-config_setting(
-    name = "yolo_lang_2",
+    name = "yolo_lang_2_setting",
     constraint_values = ["//yolo:yolo_lang_2"],
 )
 
 config_setting(
-    name = "yolo_lang_3",
+    name = "yolo_lang_3_setting",
     constraint_values = ["//yolo:yolo_lang_3"],
 )
 
